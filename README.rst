@@ -54,4 +54,3 @@ http://www.fsf.org/licensing/licenses/agpl-3.0.html
 .. _pycsw: http://pycsw.org
 .. _GeoJSON: http://geojson.org
 .. _ckanext-geoview: https://github.com/ckan/ckanext-geoview
-

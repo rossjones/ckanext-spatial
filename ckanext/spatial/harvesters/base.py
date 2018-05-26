@@ -203,7 +203,7 @@ class SpatialHarvester(HarvesterBase):
         :returns: A dataset dictionary (package_dict)
         :rtype: dict
         '''
-        
+
         tags = []
 
         if 'tags' in iso_values:
@@ -383,8 +383,10 @@ class SpatialHarvester(HarvesterBase):
                     if resource['format'] == 'wms' and config.get('ckanext.spatial.harvest.validate_wms', False):
                         # Check if the service is a view service
                         test_url = url.split('?')[0] if '?' in url else url
-                        if self._is_wms(test_url):
-                            resource['verified'] = True
+
+                        is_wms = self._is_wms(test_url)
+                        resource['verified'] = is_wms
+                        if is_wms:
                             resource['verified_date'] = datetime.now().isoformat()
 
                     resource.update(
